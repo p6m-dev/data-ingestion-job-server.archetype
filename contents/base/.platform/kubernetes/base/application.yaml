@@ -1,0 +1,17 @@
+apiVersion: meta.p6m.dev/v1alpha1
+kind: PlatformApplication
+metadata:
+  name: job-server
+  labels:
+    p6m.dev/app: job-server
+spec:
+  secrets:
+    - name: job-server
+  deployment:
+    image: job-server:latest
+    ports:
+      - protocol: http
+        port: 80
+    readinessProbe:
+      port: 80
+      path: /health/readiness

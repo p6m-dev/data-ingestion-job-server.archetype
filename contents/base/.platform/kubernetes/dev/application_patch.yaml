@@ -1,0 +1,6 @@
+apiVersion: meta.p6m.dev/v1alpha1
+kind: PlatformApplication
+metadata:
+  name: job-server
+spec:
+  config: {}

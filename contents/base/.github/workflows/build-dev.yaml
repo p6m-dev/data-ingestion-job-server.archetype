@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "README.md"
+
+name: 1. Dev Build & Deploy
+run-name: Dev Build & Deploy
+
+jobs:
+  build_and_deploy:
+    uses: ./.github/workflows/build-docker-python-plain.yaml
+    secrets:
+      ARTIFACTORY_USERNAME:  ${{'{'}}{ secrets.ARTIFACTORY_USERNAME }}
+      ARTIFACTORY_IDENTITY_TOKEN:  ${{'{'}}{ secrets.ARTIFACTORY_IDENTITY_TOKEN }}
+      UPDATE_MANIFEST_TOKEN:  ${{'{'}}{ secrets.UPDATE_MANIFEST_TOKEN }}
+      ARTIFACTORY_TOKEN:  ${{'{'}}{ secrets.ARTIFACTORY_TOKEN }}
+    with:
+      ARTIFACTORY_REGISTRY: "p6m-dev.jfrog.io"
+      APPS: job-server
+      DOCKER_REPO: p6m-data-platform-docker/applications

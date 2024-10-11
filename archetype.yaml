@@ -1,0 +1,9 @@
+---
+description: "Postgres Database component archetype for Unstructured Data Ingestion"
+authors: ["Ricky Datta"]
+languages: []
+frameworks: []
+tags: []
+
+requires:
+  archetect: "2.0.0-ALPHA.10"
