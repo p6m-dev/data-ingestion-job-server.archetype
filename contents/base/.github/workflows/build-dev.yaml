@@ -4,6 +4,8 @@ on:
       - main
     paths-ignore:
       - "README.md"
+      
+permissions: write-all
 
 name: 1. Dev Build & Deploy
 run-name: Dev Build & Deploy
